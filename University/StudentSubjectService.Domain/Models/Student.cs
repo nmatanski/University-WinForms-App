@@ -17,6 +17,7 @@ namespace StudentService.Domain.Models
         {
             get { return _id.ToString(); }
             private set { _id = new CustomId(new Guid(value)); }
+
         }
 
         public string Name { get; set; }

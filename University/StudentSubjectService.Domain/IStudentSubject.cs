@@ -9,6 +9,10 @@ namespace StudentSubjectService.Domain
 {
     public interface IStudentSubject
     {
+        List<Student> GetAllStudents();
+        List<Subject> GetAllSubjects();
+        Student GetStudentByFacultyNumber(string facultyNumber);
+        Subject GetSubjectByTitle(string subjectTitle);
         List<Subject> GetAllSubjectsByStudent(string facultyNumber);
         List<Student> GetAllStudentsBySubject(string subjectTitle);
         void AddSubjectToStudent(string facultyNumber, string subjectTitle, string lecturerName = null);

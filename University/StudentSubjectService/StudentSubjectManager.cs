@@ -18,6 +18,27 @@ namespace StudentSubjectService
             db = new AppDbContext();
         }
 
+
+        public List<Student> GetAllStudents()
+        {
+            return db.Students.ToList();
+        }
+
+        public List<Subject> GetAllSubjects()
+        {
+            return db.Subjects.ToList();
+        }
+
+        public Student GetStudentByFacultyNumber(string facultyNumber)
+        {
+            return db.Students.ToList().Where(s => s.FacultyNumber == facultyNumber).FirstOrDefault();
+        }
+
+        public Subject GetSubjectByTitle(string subjectTitle)
+        {
+            return db.Subjects.ToList().Where(s => s.Title == subjectTitle).FirstOrDefault();
+        }
+
         public List<Subject> GetAllSubjectsByStudent(string facultyNumber)
         {
             return db.StudentSubjects.Where(ss => ss.Student.FacultyNumber == facultyNumber).Select(ss => ss.Subject).ToList();
