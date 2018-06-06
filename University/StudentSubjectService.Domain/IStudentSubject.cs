@@ -18,5 +18,9 @@ namespace StudentSubjectService.Domain
         void AddSubjectToStudent(string facultyNumber, string subjectTitle, string lecturerName = null);
         void LinkExistingStudentAndSubject(string facultyNumber, string subjectTitle);
         void DeleteLinkBetweenStudentAndSubject(string facultyNumber, string subjectTitle);
+        void CreateNewStudent(Student student);
+        void CreateNewSubject(Subject subject);
+        void DeleteStudent(string facultyNumber);
+        void DeleteSubject(string subjectTitle);
     }
 }

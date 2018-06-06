@@ -113,6 +113,10 @@
       <Project>{9B785A4A-1E96-4CCF-B645-1ADAD768DFAD}</Project>
       <Name>StudentSubjectService.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\StudentSubjectService\StudentSubjectService.csproj">
+      <Project>{28592665-9ED8-4182-A6F9-9D7648D1CD9B}</Project>
+      <Name>StudentSubjectService</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

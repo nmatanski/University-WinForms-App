@@ -51,14 +51,14 @@ namespace StudentSubjectService
 
         public void AddSubjectToStudent(string facultyNumber, string subjectTitle, string lecturerName = null)
         {
-            var student = db.Students.Where(s => s.FacultyNumber == facultyNumber).SingleOrDefault();
-            if (student == null)
-                return;
-            var subject = db.Subjects.Where(s => s.Title == subjectTitle).SingleOrDefault();
-            if (subject == null)
-                subject = new Subject { Title = subjectTitle, LecturerName = lecturerName };
-            db.StudentSubjects.Add(new StudentSubject { Student = student, Subject = subject });
-            db.SaveChanges();
+            //var student = db.Students.Where(s => s.FacultyNumber == facultyNumber).SingleOrDefault();
+            //if (student == null)
+            //    return;
+            //var subject = db.Subjects.Where(s => s.Title == subjectTitle).SingleOrDefault();
+            //if (subject == null)
+            //    subject = new Subject { Title = subjectTitle, LecturerName = lecturerName };
+            //db.StudentSubjects.Add(new StudentSubject { Student = student, Subject = subject });
+            //db.SaveChanges();
         }
 
         public void LinkExistingStudentAndSubject(string facultyNumber, string subjectTitle)
@@ -77,6 +77,38 @@ namespace StudentSubjectService
             if (studentSubject == null)
                 return;
             db.StudentSubjects.Remove(studentSubject);
+            db.SaveChanges();
+        }
+
+        public void CreateNewStudent(Student student)
+        {
+            db.Students.Add(student);
+            db.SaveChanges();
+        }
+
+        public void CreateNewSubject(Subject subject)
+        {
+            db.Subjects.Add(subject);
+            db.SaveChanges();
+        }
+
+        public void DeleteStudent(string facultyNumber)
+        {
+            var subjects = GetAllSubjectsByStudent(facultyNumber);
+            foreach (var subject in subjects)
+            {
+                DeleteLinkBetweenStudentAndSubject(facultyNumber, subject.Title);
+            }
+            db.SaveChanges();
+        }
+
+        public void DeleteSubject(string subjectTitle)
+        {
+            var students = GetAllStudentsBySubject(subjectTitle);
+            foreach (var student in students)
+            {
+                DeleteLinkBetweenStudentAndSubject(student.FacultyNumber, subjectTitle);
+            }
             db.SaveChanges();
         }
     }

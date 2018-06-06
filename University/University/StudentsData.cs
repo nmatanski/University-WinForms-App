@@ -1,4 +1,5 @@
 ﻿using DAL.Database;
+using StudentSubjectService;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,11 +15,16 @@ namespace University
 {
     public partial class StudentsData : Form
     {
-        private AppDbContext db;
+        private StudentSubjectManager studentSubjectManager;
         public StudentsData()
         {
             InitializeComponent();
-            db = new AppDbContext();
+
+            studentSubjectManager = new StudentSubjectManager();
+
+            dgvStudents.DataSource = studentSubjectManager.GetAllStudents();
+            dgvStudents.Refresh();
+
         }
 
         private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -38,11 +44,7 @@ namespace University
 
         private void StudentsData_Load(object sender, EventArgs e)
         {
-            var table = new DataTable();
-            BindingSource source = new BindingSource();
-            source.DataSource = db.Students.Local.ToBindingList();
-            dataGridViewStudents.DataSource = source;
-            dataGridViewStudents.Refresh();
+            
         }
     }
 }

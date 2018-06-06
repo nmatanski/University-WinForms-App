@@ -10,13 +10,14 @@ namespace StudentService.Domain.Models
 {
     public class Subject
     {
-        private CustomId _id;
+        //private CustomId _id;
 
         [Key]
-        public string SubjectID
+        public int SubjectID
         {
-            get { return _id.ToString(); }
-            private set { _id = new CustomId(new Guid(value)); }
+            //get { return _id.ToString(); }
+            //private set { _id = new CustomId(new Guid(value)); }
+            get;set;
         }
 
         public string Title { get; set; }

@@ -12,13 +12,15 @@ namespace DAL.Database
     public class AppDbContext : DbContext
     {
 
-        public AppDbContext() : base("University")
+        public AppDbContext() : base("UniversityApp")
         {
-            Database.Initialize(true);
+            if(!Database.Exists())
+                Database.Initialize(true);
 
-            //if(!Database.Exists())
+            //if (!Database.Exists())
             //{
-            //    Database.SetInitializer(new MigrateDatabaseToLatestVersion<AppDbContext, Configuration>())
+            //    Database.SetInitializer(new MigrateDatabaseToLatestVersion<AppDbContext, Configuration>());
+            //    Database.SetInitializer(new DropCreateDatabaseIfModelChanges<AppDbContext>());
             //}
         }
 

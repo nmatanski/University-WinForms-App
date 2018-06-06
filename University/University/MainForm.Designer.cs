@@ -35,13 +35,10 @@
             this.tsDropDownButtonSubject = new System.Windows.Forms.ToolStripDropDownButton();
             this.ftsMenuItemAddStudentsToSubject = new System.Windows.Forms.ToolStripMenuItem();
             this.ftsMenuItemShowSubjects = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FacultyNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UCV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvStudents = new System.Windows.Forms.DataGridView();
+            this.ftsMenuItemAddStudent = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -60,6 +57,7 @@
             // 
             this.tsDropDownBtnStudent.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.tsDropDownBtnStudent.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ftsMenuItemAddStudent,
             this.ftsMenuItemShowStudents});
             this.tsDropDownBtnStudent.Image = ((System.Drawing.Image)(resources.GetObject("tsDropDownBtnStudent.Image")));
             this.tsDropDownBtnStudent.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -98,61 +96,27 @@
             this.ftsMenuItemShowSubjects.Size = new System.Drawing.Size(372, 38);
             this.ftsMenuItemShowSubjects.Text = "Edit Subjects";
             // 
-            // dataGridView1
+            // dgvStudents
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.FacultyNumber,
-            this.UCV,
-            this.Email});
-            this.dataGridView1.Location = new System.Drawing.Point(26, 64);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 33;
-            this.dataGridView1.Size = new System.Drawing.Size(1870, 152);
-            this.dataGridView1.TabIndex = 1;
+            this.dgvStudents.AllowUserToAddRows = false;
+            this.dgvStudents.AllowUserToDeleteRows = false;
+            this.dgvStudents.AllowUserToOrderColumns = true;
+            this.dgvStudents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader;
+            this.dgvStudents.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStudents.Location = new System.Drawing.Point(26, 64);
+            this.dgvStudents.Name = "dgvStudents";
+            this.dgvStudents.ReadOnly = true;
+            this.dgvStudents.RowTemplate.Height = 33;
+            this.dgvStudents.Size = new System.Drawing.Size(1870, 152);
+            this.dgvStudents.TabIndex = 1;
             // 
-            // Column1
+            // ftsMenuItemAddStudent
             // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Column1.HeaderText = "Имена на студент";
-            this.Column1.MinimumWidth = 270;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 270;
-            // 
-            // FacultyNumber
-            // 
-            this.FacultyNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.FacultyNumber.HeaderText = "Факултетен номер";
-            this.FacultyNumber.MinimumWidth = 260;
-            this.FacultyNumber.Name = "FacultyNumber";
-            this.FacultyNumber.ReadOnly = true;
-            this.FacultyNumber.Width = 260;
-            // 
-            // UCV
-            // 
-            this.UCV.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.UCV.HeaderText = "ЕГН";
-            this.UCV.MinimumWidth = 260;
-            this.UCV.Name = "UCV";
-            this.UCV.ReadOnly = true;
-            this.UCV.Width = 260;
-            // 
-            // Email
-            // 
-            this.Email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Email.HeaderText = "E-mail";
-            this.Email.MinimumWidth = 200;
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            this.Email.Width = 200;
+            this.ftsMenuItemAddStudent.Name = "ftsMenuItemAddStudent";
+            this.ftsMenuItemAddStudent.Size = new System.Drawing.Size(324, 38);
+            this.ftsMenuItemAddStudent.Text = "Add Student";
+            this.ftsMenuItemAddStudent.Click += new System.EventHandler(this.ftsMenuItemAddStudent_Click);
             // 
             // MainForm
             // 
@@ -160,14 +124,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1952, 1044);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvStudents);
             this.Controls.Add(this.toolStrip1);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "University app";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,11 +145,8 @@
         private System.Windows.Forms.ToolStripDropDownButton tsDropDownButtonSubject;
         private System.Windows.Forms.ToolStripMenuItem ftsMenuItemAddStudentsToSubject;
         private System.Windows.Forms.ToolStripMenuItem ftsMenuItemShowSubjects;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FacultyNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UCV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
+        private System.Windows.Forms.DataGridView dgvStudents;
+        private System.Windows.Forms.ToolStripMenuItem ftsMenuItemAddStudent;
     }
 }
 

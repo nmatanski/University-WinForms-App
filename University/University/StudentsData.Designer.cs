@@ -28,33 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridViewStudents = new System.Windows.Forms.DataGridView();
+            this.dgvStudents = new System.Windows.Forms.DataGridView();
             this.StudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StudentFacultyNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StudentUCV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StudentEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudents)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridViewStudents
+            // dgvStudents
             // 
-            this.dataGridViewStudents.AllowUserToOrderColumns = true;
-            this.dataGridViewStudents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader;
-            this.dataGridViewStudents.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridViewStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewStudents.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvStudents.AllowUserToOrderColumns = true;
+            this.dgvStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStudents.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.StudentName,
             this.StudentFacultyNumber,
             this.StudentUCV,
             this.StudentEmail});
-            this.dataGridViewStudents.Location = new System.Drawing.Point(28, 39);
-            this.dataGridViewStudents.Name = "dataGridViewStudents";
-            this.dataGridViewStudents.RowTemplate.Height = 33;
-            this.dataGridViewStudents.Size = new System.Drawing.Size(1870, 152);
-            this.dataGridViewStudents.TabIndex = 0;
-            this.dataGridViewStudents.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
-            this.dataGridViewStudents.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView1_EditingControlShowing);
-            this.dataGridViewStudents.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridView1_UserDeletingRow);
+            this.dgvStudents.Location = new System.Drawing.Point(28, 39);
+            this.dgvStudents.Name = "dgvStudents";
+            this.dgvStudents.RowHeadersVisible = false;
+            this.dgvStudents.RowTemplate.Height = 33;
+            this.dgvStudents.Size = new System.Drawing.Size(1870, 152);
+            this.dgvStudents.TabIndex = 0;
+            this.dgvStudents.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValueChanged);
+            this.dgvStudents.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView1_EditingControlShowing);
+            this.dgvStudents.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGridView1_UserDeletingRow);
             // 
             // StudentName
             // 
@@ -93,18 +92,18 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2082, 1078);
-            this.Controls.Add(this.dataGridViewStudents);
+            this.Controls.Add(this.dgvStudents);
             this.Name = "StudentsData";
             this.Text = "StudentsData";
             this.Load += new System.EventHandler(this.StudentsData_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudents)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridViewStudents;
+        private System.Windows.Forms.DataGridView dgvStudents;
         private System.Windows.Forms.DataGridViewTextBoxColumn StudentName;
         private System.Windows.Forms.DataGridViewTextBoxColumn StudentFacultyNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn StudentUCV;
